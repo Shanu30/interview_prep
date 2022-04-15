@@ -1,0 +1,4 @@
+What is a URLs full form? Explain what a url is and the four parts it consists of The protocol in use The hostname of the server The location of the file The arguments to the file
+What are some HTTP response codes? what does it mean? 2xx, 3xx, 4xx, 5xx
+What is polling?
+What is long polling?

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .debounce,.throttler{
+          
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            margin-left: 200px;
+            font-size: 1.5em;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+        <button class="debounce">Click for debounce </button>
+        <button class="throttler">Click for throttler </button>
+    <script>
+        const handleClickDebounncer = () => {
+            console.log("clicked debouncer")
+        }
+
+
+        function debouncer(fn, delay) {
+            let id;
+            return () => {
+                if(id){
+                    clearTimeout(id);
+                }
+                id = setTimeout(()=> fn.apply(this,arguments), delay)
+            }
+        }
+        document.querySelector(".debounce").addEventListener("click" , debouncer(handleClickDebounncer,500));
+        
+        const handleClickThrottler = () => {
+            console.log("clicked throttler")
+        }
+        function throttler(fn, delay) {
+            let lastCall = 0;
+            return () => {
+                let now = Date.now();
+                if(Date.now() - lastCall >= delay){
+                    lastCall =  Date.now() 
+                    fn.apply(this,arguments)
+                }
+            }
+        }
+        document.querySelector(".throttler").addEventListener("click" , throttler(handleClickThrottler,1000));
+         
+        
+    </script>
+</body>
+</html>

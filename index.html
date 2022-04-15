@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call, apply, bind:
+        let name = {
+            fnme : "kumar",
+            lnme : "shanu",
+           
+        }
+        let printfullnme = function(hometown, state) {
+                console.log(this.fnme + " " + this.lnme + " from" +" "+ hometown +" "+ state);
+        }
+        //call is used for function borrowing.
+        printfullnme.call(name, "varanasi", "uttarpradesh")
+        
+        let name2 = {
+            fnme : "MS",
+            lnme : "Dhoni"
+        }
+        //In call we write multiple parameters individualy but ib apply we write all the parameters in an array.
+        printfullnme.apply(name2, ["ranchi", "jharkhand"])
+    </script>
+</body>
+</html>
